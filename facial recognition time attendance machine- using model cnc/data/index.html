@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Flask Video Stream</title>
+    </head>
+    <body>
+        <h1>Flask Video Stream</h1>
+        <div>
+            <img src="{{ url_for('video_feed') }}" />
+            <h1>Nhấn các nút để chạy ssssssscode Python</h1>
+            <button onclick="runPythonCode1()">Công việc 1</button>
+            <button onclick="runPythonCode2()">Công việc 2</button>
+            <button onclick="runPythonCode3()">Công việc 3</button>
+            <div id="result"></div>
+            
+        </div>
+        <div><h1>Nhập tên của baaaaaaạn:</h1>
+            <form action="{{ url_for('index') }}" method="post">
+                <label for="name">Tên:</label>
+                <input type="text" id="name" name="name" required>
+                <button type="submit">Gửi</button>
+            </form>
+            {% if name %}
+                <p>Tên của bạn là: {{ name }}</p>
+            {% endif %}</div>
+        <script>
+         fetch('/do_something_1', {
+                method: 'POST'
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('result').textContent = data;
+            })
+            .catch(error => {
+                console.error('Lỗi:', error);
+            });
+        
+
+
+        function runPythonCode2() {
+            fetch('/do_something_2', {
+                method: 'POST'
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('result').textContent = data;
+            })
+            .catch(error => {
+                console.error('Lỗi:', error);
+            });
+        }
+
+        function runPythonCode3() {
+            fetch('/do_something_3', {
+                method: 'POST'
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('result').textContent = data;
+            })
+            .catch(error => {
+                console.error('Lỗi:', error);
+            });
+        }
+        </script>
+    </body>
+</html>

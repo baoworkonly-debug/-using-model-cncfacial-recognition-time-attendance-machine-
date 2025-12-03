@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>Flask Video Stream</title>
+    </head>
+    <body>
+        <h1>Flask Video Stream</h1>
+        <div>
+            <img src="{{ url_for('video_feed') }}" />
+            
+            <!-- <button onclick="runPythonCode1()">luu anh training</button>
+            <button onclick="runPythonCode2()">Công việc 2</button>
+            <button onclick="runPythonCode3()">Công việc 3</button> -->
+            <!-- <div id="result"></div>
+            <h1 id="data">Nhập dữ liệu:</h1> -->
+            <!-- <form action="{{ url_for('process_data') }}" method="post">
+                <label for="input_data">Nhập dữ liệu:</label>
+                <input type="text" id="input_data" name="input_data" required>
+                <button onclick="data() ">Gửi</button>
+            </form -->
+            <!-- <h1>Folders in the directory:</h1> -->
+            <ul id="div1" >
+                {% for folder in folders %}
+                <li >{{ folder }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <style>
+
+#div1 {
+    width: 300px;
+    height: 400px;
+    background-color:9394BC;
+    position: absolute;
+    top: 0;
+    right: 400;
+}
+        </style>
+        <script>
+            function runPythonCode1() {
+                fetch('/do_something_1', {
+                    method: 'POST'
+                })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('result').textContent = data;
+                })
+                .catch(error => {
+                    console.error('Lỗi:', error);
+                });
+            }
+            
+            function reponse() {
+                fetch('/process_data', {
+                    method: 'POST'
+                })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('data').textContent = data;
+                })
+                .catch(error => {
+                    console.error('Lỗi:', error);
+                });
+            }
+            function runPythonCode2() {
+                fetch('/do_something_2', {
+                    method: 'POST'
+                })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('result').textContent = data;
+                })
+                .catch(error => {
+                    console.error('Lỗi:', error);
+                });
+            }
+    
+            function runPythonCode3() {
+                fetch('/do_something_3', {
+                    method: 'POST'
+                })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('result').textContent = data;
+                })
+                .catch(error => {
+                    console.error('Lỗi:', error);
+                });
+            }
+        </script>
+    </body>
+</html>

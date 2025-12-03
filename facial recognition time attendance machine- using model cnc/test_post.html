@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Flask App</title>
+    <script>
+        function submitForm() {
+            // Lấy dữ liệu từ form
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+
+            // Tạo đối tượng XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+
+            // Cấu hình yêu cầu POST
+            xhr.open("POST", "http://127.0.0.1:5000/submit", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            // Gửi dữ liệu dạng JSON
+            xhr.send(JSON.stringify({ name: name, email: email }));
+
+            // Xử lý phản hồi
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    alert(xhr.responseText);
+                }
+            };
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to my Flask app!</h1>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+</body>
+</html>
